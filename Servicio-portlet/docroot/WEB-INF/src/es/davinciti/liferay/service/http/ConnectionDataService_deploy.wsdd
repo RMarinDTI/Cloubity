@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+	<service name="Plugin_CMES_ConnectionDataService" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="es.davinciti.liferay.service.http.ConnectionDataServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="ConnectionDataServiceSoap" />
+		<parameter name="wsdlServiceElement" value="ConnectionDataServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_CMES_ConnectionDataService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.liferay.davinciti.es" />
+	</service>
+</deployment>

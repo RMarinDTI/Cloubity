@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
+<service-builder package-path="es.davinciti.liferay">
+	<author>Cmes</author>
+	<namespace>CMES</namespace>
+	
+	<!-- GENERALES -->
+	
+	<entity name="ApplicationStatus" local-service="true" remote-service="true">
+		
+		<!-- PK fields -->
+
+		<column name="applicationStatusId" type="long" primary="true" id-type="increment" />
+		
+		<!-- Audit fields -->
+		
+		<column name="applicationName" type="String" />
+		<column name="statusId" type="String" />
+		<column name="name" type="String" />
+		<column name="description" type="String" />		
+		
+		<!-- Finder methods -->
+		
+		<finder name="ApplicationNameStatusId" return-type="Collection" >
+			<finder-column name="applicationName" />
+			<finder-column name="statusId" />			
+		</finder> 
+		
+	</entity>
+	
+	<!-- CONECTIVIDAD ERPS -->
+
+	<entity name="ConnectionConfigs" local-service="true" remote-service="true">
+
+		<!-- PK fields -->
+
+		<column name="configId" type="long" primary="true" id-type="increment" />
+		
+		<!-- FK fields -->
+		
+		<column name="connectionTypes" type="Collection" entity="ConnectionTypes" mapping-table="Configs_Types"/>
+		<column name="connectionActions" type="Collection" entity="ConnectionActionTypes" mapping-table="Configs_Actions"/>
+		<column name="connectionDatas" type="Collection" entity="ConnectionData" mapping-table="Configs_Datas"/>
+				
+		<!-- Audit fields -->
+		
+		<column name="companyId" type="long" />
+		<column name="installationId" type="String" />
+		<column name="companyCode" type="String" />
+		<column name="productCode" type="String" />
+		<column name="disableDate" type="Date" />
+
+		<!-- Order -->
+
+		<!-- Finder methods -->
+		
+		<finder name="CompanyId" return-type="Collection" >
+			<finder-column name="companyId" />
+		</finder> 
+		
+	</entity>
+	
+	<entity name="ConnectionTypes" local-service="true" remote-service="true">
+
+		<!-- PK fields -->
+
+		<column name="connectionTypeId" type="long" primary="true" id-type="increment" />
+		
+		<!-- FK Fields -->
+		
+		<column name="connectionConfigs" type="Collection" entity="ConnectionConfigs" mapping-table="Configs_Types"/>		
+		
+		<!-- Audit fields -->
+
+		<column name="name" type="String" />
+		<column name="disableDate" type="Date" />
+		
+		<!-- Order -->
+
+		<!-- Finder methods -->
+		
+	</entity>
+	
+	<entity name="ConnectionActionTypes" local-service="true" remote-service="true">
+
+		<!-- PK fields -->
+		<column name="connectionActionTypeId" type="long" primary="true" id-type="increment" />
+		
+		<!--  FK Fields -->
+		<column name="connectionConfigs" type="Collection" entity="ConnectionConfigs" mapping-table="Configs_Actions"/>
+				
+		<!-- Audit fields -->
+
+		<column name="name" type="String" />
+		<column name="disableDate" type="Date" />
+		
+		<!-- Order -->
+
+		<!-- Finder methods -->
+		
+	</entity>
+	
+	<entity name="ConnectionData" local-service="true" remote-service="true">
+
+		<!-- PK fields -->
+
+		<column name="connectionDataId" type="long" primary="true" id-type="increment" />
+				
+		<!-- FK Fields -->
+		
+		<column name="connectionConfigs" type="Collection" entity="ConnectionConfigs" mapping-table="Configs_Datas"/>
+		
+		<!-- Audit fields -->
+
+		<column name="companyDB" type="String" />
+		<column name="username" type="String" />
+		<column name="password" type="String" />
+		<column name="url" type="String" />
+		<column name="server" type="String" />
+		<column name="port" type="String" />
+		<column name="accessToken" type="String" />
+		<column name="refreshToken" type="String" />
+		<column name="disableDate" type="Date" />
+		<column name="secretKey" type="String" />
+		<column name="applicationToken" type="String" />
+		<column name="clientId" type="String" />
+		<column name="tokenType" type="String" />
+		<column name="expiresIn" type="int" />
+		<column name="scope" type="String" />	
+		<column name="clavePrimaria" type="String" />
+		<column name="claveSecundaria" type="String" />
+		<column name="sessionId" type="String" />
+		<column name="encodedClientCredentials" type="String" />
+		<column name="state" type="String" />
+		<column name="webSecretKey" type="String" />
+		<column name="applicationCode" type="String" />
+		<!-- Order -->
+
+		<!-- Finder methods -->
+			
+	</entity>
+	
+	<!-- VACACIONES -->
+	
+	<entity name="SapEmployee" local-service="true" remote-service="true">
+
+		<!-- PK fields -->
+
+		<column name="sapEmployeeId" type="long" primary="true" id-type="increment" />
+		
+		<!-- FK Fields -->
+		
+		<column name="employeeID" type="long" />
+		<column name="userId" type="long" />
+		
+		<!-- Audit fields -->
+
+		<column name="middleName" type="String" />
+		<column name="gender" type="String" />
+		<column name="jobTitle" type="String" />
+		<column name="employeeType" type="String" />
+		
+		<!-- Order -->
+
+		<!-- Finder methods -->
+		
+		<finder name="EmployeeId" return-type="Collection" >
+			<finder-column name="employeeID" />
+		</finder> 
+		
+		<finder name="UserId" return-type="Collection" >
+			<finder-column name="userId" />
+		</finder> 
+		
+	</entity>
+	
+	<entity name="SageEmployee" local-service="true" remote-service="true">
+
+		<!-- PK fields -->
+	
+		<column name="sageEmployeeId" type="long" primary="true" id-type="increment" />
+		
+		<!-- FK Fields -->
+		
+		<column name="userId" type="long" />			
+		<column name="employeeID" type="String" />
+		
+		<!-- Audit fields -->	
+		
+		<column name="applicationId" type="String" />
+		<column name="companyId" type="String" />
+		<column name="personId" type="String" />		
+		<column name="startDate" type="String" />
+		<column name="endDate" type="String" />
+		<column name="seniority" type="String" />		
+		
+		<!-- Order -->
+	
+		<!-- Finder methods -->
+		
+		<finder name="EmployeeId" return-type="Collection" >
+			<finder-column name="employeeID" />
+		</finder> 
+		
+		<finder name="UserId" return-type="Collection" >
+			<finder-column name="userId" />
+		</finder> 
+		
+	</entity>
+	
+	<entity name="TipoDiaCalendar" local-service="true" remote-service="true">
+
+		<!-- PK fields -->
+	
+		<column name="tipoDiaCalendarId" type="long" primary="true" id-type="increment" />
+	
+		<!-- FK Fields -->
+		
+		<column name="descripcion" type="String" />			
+		<column name="fondoColor" type="String" />
+		<column name="letraColor" type="String" />
+		<column name="strong" type="String" />
+		
+		<!-- Finder methods -->
+		
+		<finder name="Descripcion" return-type="Collection" >
+			<finder-column name="descripcion" />
+		</finder>
+	
+	</entity>
+	
+	<entity name="Calendario" local-service="true" remote-service="true">
+
+		<!-- PK fields -->
+	
+		<column name="calendarioId" type="long" primary="true" id-type="increment" />
+	
+		<!-- FK Fields -->
+		
+		<column name="companyId" type="long" />			
+		<column name="userId" type="long" />
+		<column name="year" type="int" />
+		
+		<!-- Audit fields -->	
+		
+		<column name="calendarJson" type="String" />
+		<column name="status" type="String" />
+		
+		<!-- Finder methods -->
+		
+		<finder name="CompanyIdUserIdYear" return-type="Collection" >
+			<finder-column name="companyId" />
+			<finder-column name="userId" />
+			<finder-column name="year" />
+		</finder>	
+	
+	</entity>
+	
+	<entity name="DiasVacaciones" local-service="true" remote-service="true">
+
+		<!-- PK fields -->
+	
+		<column name="diasVacacionesId" type="long" primary="true" id-type="increment" />
+	
+		<!-- FK Fields -->
+		
+		<column name="companyId" type="long" />			
+		<column name="userId" type="long" />
+		
+		<!-- Audit fields -->	
+		
+		<column name="year" type="int" />
+		<column name="disponibles" type="int" />
+		<column name="solicitados" type="int" />
+		<column name="aprobados" type="int" />
+		<column name="pendientes" type="int" />
+		<column name="asignado" type="String" />
+		
+		<!-- Finder methods -->
+		
+		<finder name="CompanyId" return-type="Collection" >
+			<finder-column name="companyId" />
+		</finder>
+		
+		<finder name="UserId" return-type="Collection" >
+			<finder-column name="userId" />
+		</finder>  
+		
+		<finder name="CompanyIdUserIdYear" return-type="Collection" >
+			<finder-column name="companyId" />
+			<finder-column name="userId" />
+			<finder-column name="year" />
+		</finder>
+	
+	</entity>	
+	
+	<!-- NOTA DE GASTOS -->
+	
+	<entity name="NotaGasto" local-service="true" remote-service="true">
+		
+		<!-- PK fields -->
+	
+		<column name="notagastoId" type="long" primary="true" id-type="increment" />
+	
+		<!-- FK Fields -->
+		
+		<column name="companyId" type="long" />		
+		<column name="userId" type="long" />
+		<column name="historicoNotas" type="Collection" entity="HistoricoNota" mapping-table="Notas_HistoricoNotas"/>
+		<column name="lineaGastos" type="Collection" entity="LineaGasto" mapping-table="Notas_Lineas"/>
+		<column name="organizationSageCompanies" type="Collection" entity="OrganizationSageCompany" mapping-table="Notas_OrganizationSageCompanies"/>
+		
+		<!-- Audit fields -->		
+		
+		<column name="description" type="String" />
+		<column name="startDate" type="String" />
+		<column name="endDate" type="String" />		
+		<column name="comments" type="String" />
+		<column name="status" type="String" />
+		<column name="amount" type="String" />
+		<column name="createDate" type="String" />
+		<column name="updateDate" type="String" />	
+		
+		<!-- Finder methods -->
+		
+		<finder name="CompanyId" return-type="Collection" >
+			<finder-column name="companyId" />			
+		</finder>
+		
+		<finder name="CompanyIdUserId" return-type="Collection" >
+			<finder-column name="companyId" />
+			<finder-column name="userId" />
+		</finder>	
+		
+	</entity>
+	
+	<entity name="HistoricoNota" local-service="true" remote-service="true">
+		
+		<!-- PK fields -->
+	
+		<column name="historiconotaId" type="long" primary="true" id-type="increment" />
+	
+		<!-- FK Fields -->
+		
+		<column name="companyId" type="long" />		
+		<column name="userId" type="long" />
+		<column name="notaGastos" type="Collection" entity="NotaGasto" mapping-table="Notas_HistoricoNotas"/>		
+		
+		<!-- Audit fields -->		
+		
+		<column name="comments" type="String" />
+		<column name="updateAt" type="String" />
+		<column name="prevStatus" type="String" />
+		<column name="newStatus" type="String" />			
+		
+	</entity>
+	
+	<entity name="LineaGasto" local-service="true" remote-service="true">
+		
+		<!-- PK fields -->
+	
+		<column name="lineagastoId" type="long" primary="true" id-type="increment" />
+		
+		<!-- FK Fields -->
+		
+		<column name="notaGastos" type="Collection" entity="NotaGasto" mapping-table="Notas_Lineas"/>
+		<column name="lineaGastoPayModes" type="Collection" entity="LineaGastoPayMode" mapping-table="Lineas_PayModes"/>
+		<column name="currencies" type="Collection" entity="Currency" mapping-table="Lineas_Currencies"/>
+		<column name="lineaGastoFamilias" type="Collection" entity="LineaGastoFamilia" mapping-table="Lineas_Familias"/>
+		<column name="lineaGastoCategorias" type="Collection" entity="LineaGastoCategoria" mapping-table="Lineas_Categorias"/>
+		<column name="lineaGastoClientes" type="Collection" entity="LineaGastoCliente" mapping-table="Lineas_Clientes"/>		
+		<column name="lineaGastoProyectos" type="Collection" entity="LineaGastoProyecto" mapping-table="Lineas_Proyectos"/>
+		
+		<!-- Audit fields -->	
+		
+		<column name="date" type="String" />
+		<column name="amount" type="String" />		
+		<column name="documentId" type="String" />
+		<column name="comments" type="String" />
+		<column name="status" type="String" />
+		<!-- Categorías -->		
+		<column name="price" type="String" />
+		<column name="quantity" type="String" />
+		
+		<!-- Finder methods  -->
+		
+		<finder name="Date" return-type="Collection" >
+			<finder-column name="date" />			
+		</finder>		
+		
+	</entity>
+	
+	<entity name="OrganizationSageCompany" local-service="true" remote-service="true">
+		
+		<!-- PK fields -->
+	
+		<column name="orgsagecompanyId" type="long" primary="true" id-type="increment" />
+		
+		<!-- FK fields -->	
+		
+		<column name="notaGastos" type="Collection" entity="NotaGasto" mapping-table="Notas_OrganizationSageCompanies"/>		
+	
+		<column name="organizationId" type="long" />
+		<column name="sageCompanyId" type="String" />
+		
+		<!-- Finder methods -->
+		
+		<finder name="OrganizationId" return-type="Collection" >
+			<finder-column name="organizationId" />			
+		</finder>			
+		
+	</entity>	
+	
+	<entity name="LineaGastoPayMode" local-service="true" remote-service="true">
+		
+		<!-- PK fields -->
+	
+		<column name="paymodeId" type="long" primary="true" id-type="increment" />
+		
+		<!-- FK fields -->
+		
+		<column name="companyId" type="long" />
+		<column name="lineaGastos" type="Collection" entity="LineaGasto" mapping-table="Lineas_PayModes"/>
+		
+		<!-- Audit fields -->	
+		
+		<column name="name" type="String" />
+		<column name="description" type="String" />		
+		
+		<!-- Finder methods -->
+		
+		<finder name="CompanyId" return-type="Collection" >
+			<finder-column name="companyId" />			
+		</finder>		
+		
+	</entity>
+	
+	<entity name="Currency" local-service="true" remote-service="true">
+		
+		<!-- PK fields -->
+	
+		<column name="currencyId" type="long" primary="true" id-type="increment" />
+		<column name="lineaGastos" type="Collection" entity="LineaGasto" mapping-table="Lineas_Currencies"/>		
+					
+		<!-- Audit fields -->	
+		
+		<column name="ccyMnrUnts" type="String" />
+		<column name="ccyName" type="String" />
+		<column name="ccyNumber" type="String" />
+		<column name="code" type="String" />
+		<column name="countryName" type="String" />		
+		
+	</entity>
+	
+	<entity name="CurrenciesCompany" local-service="true" remote-service="true">
+		
+		<!-- PK fields -->
+	
+		<column name="currenciescompanyId" type="long" primary="true" id-type="increment" />
+					
+		<!-- FK fields -->	
+	
+		<column name="companyId" type="long" />	
+		<column name="currenciesJson" type="String" />	
+		
+		<!-- Finder methods -->
+		
+		<finder name="CompanyId" return-type="Collection" >			
+			<finder-column name="companyId" />			
+		</finder>	
+		
+	</entity>
+	
+	<entity name="LineaGastoFamilia" local-service="true" remote-service="true">
+	
+		<!-- PK fields -->
+	
+		<column name="familiaId" type="long" primary="true" id-type="increment" />
+		
+		<!-- FK Fields -->
+			
+		<column name="companyId" type="long" />		
+		<column name="lineaGastos" type="Collection" entity="LineaGasto" mapping-table="Lineas_Familias"/>
+		<column name="lineaGastoCategorias" type="Collection" entity="LineaGastoCategoria" mapping-table="Familias_Categorias"/>
+		
+		<!-- Audit fields -->	
+		
+		<column name="name" type="String" />
+		<column name="description" type="String" />
+		
+		<!-- Finder methods -->
+		
+		<finder name="CompanyId" return-type="Collection" >			
+			<finder-column name="companyId" />			
+		</finder>		
+	
+	</entity>
+	
+	<entity name="LineaGastoCategoria" local-service="true" remote-service="true">
+	
+		<!-- PK fields -->
+	
+		<column name="categoriaId" type="long" primary="true" id-type="increment" />
+		
+		<!-- FK Fields -->
+		
+		<column name="lineaGastoFamilias" type="Collection" entity="LineaGastoFamilia" mapping-table="Familias_Categorias"/>
+		<column name="lineaGastos" type="Collection" entity="LineaGasto" mapping-table="Lineas_Categorias"/>
+				
+		<!-- Audit fields -->	
+		
+		<column name="name" type="String" />
+		<column name="description" type="String" />
+		<column name="categoryCode" type="String" />
+		<column name="accountCode" type="String" />
+		<column name="changePrice" type="String" />  
+		<column name="needQuantity" type="String" /> 
+		<column name="price" type="String" />          
+	
+	</entity>
+	
+	<entity name="LineaGastoCliente" local-service="true" remote-service="true">
+	
+		<!-- PK fields -->
+	
+		<column name="clienteId" type="long" primary="true" id-type="increment" />
+		
+		<!-- FK Fields -->
+			
+		<column name="companyId" type="long" />		
+		<column name="lineaGastos" type="Collection" entity="LineaGasto" mapping-table="Lineas_Clientes"/>
+		<column name="lineaGastoProyectos" type="Collection" entity="LineaGastoProyecto" mapping-table="Clientes_Proyectos"/>
+		
+		<!-- Audit fields -->	
+		
+		<column name="name" type="String" />
+		<column name="description" type="String" />	
+		
+		<!-- Finder methods -->
+		
+		<finder name="CompanyId" return-type="Collection" >			
+			<finder-column name="companyId" />			
+		</finder>	
+				
+	</entity>
+	
+	<entity name="LineaGastoProyecto" local-service="true" remote-service="true">
+	
+		<!-- PK fields -->
+	
+		<column name="proyectoId" type="long" primary="true" id-type="increment" />
+		
+		<!-- FK Fields -->
+			
+		<column name="lineaGastoClientes" type="Collection" entity="LineaGastoCliente" mapping-table="Clientes_Proyectos"/>
+		<column name="lineaGastos" type="Collection" entity="LineaGasto" mapping-table="Lineas_Proyectos"/>
+		
+		<!-- Audit fields -->	
+		
+		<column name="name" type="String" />
+		<column name="description" type="String" />
+		<column name="codeName" type="String" />
+		<column name="sageCompanyId" type="String" />
+		
+	</entity>
+	
+</service-builder>

@@ -1,0 +1,270 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false" auto-import="false">
+	<import class="es.davinciti.liferay.model.ApplicationStatus" />
+	<import class="es.davinciti.liferay.model.Calendario" />
+	<import class="es.davinciti.liferay.model.ConnectionActionTypes" />
+	<import class="es.davinciti.liferay.model.ConnectionConfigs" />
+	<import class="es.davinciti.liferay.model.ConnectionData" />
+	<import class="es.davinciti.liferay.model.ConnectionTypes" />
+	<import class="es.davinciti.liferay.model.CurrenciesCompany" />
+	<import class="es.davinciti.liferay.model.Currency" />
+	<import class="es.davinciti.liferay.model.DiasVacaciones" />
+	<import class="es.davinciti.liferay.model.HistoricoNota" />
+	<import class="es.davinciti.liferay.model.LineaGasto" />
+	<import class="es.davinciti.liferay.model.LineaGastoCategoria" />
+	<import class="es.davinciti.liferay.model.LineaGastoCliente" />
+	<import class="es.davinciti.liferay.model.LineaGastoFamilia" />
+	<import class="es.davinciti.liferay.model.LineaGastoPayMode" />
+	<import class="es.davinciti.liferay.model.LineaGastoProyecto" />
+	<import class="es.davinciti.liferay.model.NotaGasto" />
+	<import class="es.davinciti.liferay.model.OrganizationSageCompany" />
+	<import class="es.davinciti.liferay.model.SageEmployee" />
+	<import class="es.davinciti.liferay.model.SapEmployee" />
+	<import class="es.davinciti.liferay.model.TipoDiaCalendar" />
+	<class name="es.davinciti.liferay.model.impl.ApplicationStatusImpl" table="CMES_ApplicationStatus">
+		<cache usage="read-write" />
+		<id name="applicationStatusId" type="long">
+			<generator class="increment" />
+		</id>
+		<property name="applicationName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="statusId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="description" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="es.davinciti.liferay.model.impl.CalendarioImpl" table="CMES_Calendario">
+		<cache usage="read-write" />
+		<id name="calendarioId" type="long">
+			<generator class="increment" />
+		</id>
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="year" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="calendarJson" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="es.davinciti.liferay.model.impl.ConnectionActionTypesImpl" table="CMES_ConnectionActionTypes">
+		<cache usage="read-write" />
+		<id name="connectionActionTypeId" type="long">
+			<generator class="increment" />
+		</id>
+		<property name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="disableDate" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="es.davinciti.liferay.model.impl.ConnectionConfigsImpl" table="CMES_ConnectionConfigs">
+		<cache usage="read-write" />
+		<id name="configId" type="long">
+			<generator class="increment" />
+		</id>
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="installationId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="companyCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="productCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="disableDate" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="es.davinciti.liferay.model.impl.ConnectionDataImpl" table="CMES_ConnectionData">
+		<cache usage="read-write" />
+		<id name="connectionDataId" type="long">
+			<generator class="increment" />
+		</id>
+		<property name="companyDB" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="username" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="password" type="com.liferay.portal.dao.orm.hibernate.StringType" column="password_" />
+		<property name="url" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="server" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="port" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="accessToken" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="refreshToken" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="disableDate" type="org.hibernate.type.TimestampType" />
+		<property name="secretKey" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="applicationToken" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="clientId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="tokenType" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="expiresIn" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="scope" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="clavePrimaria" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="claveSecundaria" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="sessionId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="encodedClientCredentials" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="state" type="com.liferay.portal.dao.orm.hibernate.StringType" column="state_" />
+		<property name="webSecretKey" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="applicationCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="es.davinciti.liferay.model.impl.ConnectionTypesImpl" table="CMES_ConnectionTypes">
+		<cache usage="read-write" />
+		<id name="connectionTypeId" type="long">
+			<generator class="increment" />
+		</id>
+		<property name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="disableDate" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="es.davinciti.liferay.model.impl.CurrenciesCompanyImpl" table="CMES_CurrenciesCompany">
+		<cache usage="read-write" />
+		<id name="currenciescompanyId" type="long">
+			<generator class="increment" />
+		</id>
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="currenciesJson" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="es.davinciti.liferay.model.impl.CurrencyImpl" table="CMES_Currency">
+		<cache usage="read-write" />
+		<id name="currencyId" type="long">
+			<generator class="increment" />
+		</id>
+		<property name="ccyMnrUnts" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="ccyName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="ccyNumber" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="code" type="com.liferay.portal.dao.orm.hibernate.StringType" column="code_" />
+		<property name="countryName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="es.davinciti.liferay.model.impl.DiasVacacionesImpl" table="CMES_DiasVacaciones">
+		<cache usage="read-write" />
+		<id name="diasVacacionesId" type="long">
+			<generator class="increment" />
+		</id>
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="year" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="disponibles" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="solicitados" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="aprobados" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="pendientes" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="asignado" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="es.davinciti.liferay.model.impl.HistoricoNotaImpl" table="CMES_HistoricoNota">
+		<cache usage="read-write" />
+		<id name="historiconotaId" type="long">
+			<generator class="increment" />
+		</id>
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="comments" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="updateAt" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="prevStatus" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="newStatus" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="es.davinciti.liferay.model.impl.LineaGastoImpl" table="CMES_LineaGasto">
+		<cache usage="read-write" />
+		<id name="lineagastoId" type="long">
+			<generator class="increment" />
+		</id>
+		<property name="date" type="com.liferay.portal.dao.orm.hibernate.StringType" column="date_" />
+		<property name="amount" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="documentId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="comments" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="price" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="quantity" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="es.davinciti.liferay.model.impl.LineaGastoCategoriaImpl" table="CMES_LineaGastoCategoria">
+		<cache usage="read-write" />
+		<id name="categoriaId" type="long">
+			<generator class="increment" />
+		</id>
+		<property name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="description" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="categoryCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="accountCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="changePrice" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="needQuantity" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="price" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="es.davinciti.liferay.model.impl.LineaGastoClienteImpl" table="CMES_LineaGastoCliente">
+		<cache usage="read-write" />
+		<id name="clienteId" type="long">
+			<generator class="increment" />
+		</id>
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="description" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="es.davinciti.liferay.model.impl.LineaGastoFamiliaImpl" table="CMES_LineaGastoFamilia">
+		<cache usage="read-write" />
+		<id name="familiaId" type="long">
+			<generator class="increment" />
+		</id>
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="description" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="es.davinciti.liferay.model.impl.LineaGastoPayModeImpl" table="CMES_LineaGastoPayMode">
+		<cache usage="read-write" />
+		<id name="paymodeId" type="long">
+			<generator class="increment" />
+		</id>
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="description" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="es.davinciti.liferay.model.impl.LineaGastoProyectoImpl" table="CMES_LineaGastoProyecto">
+		<cache usage="read-write" />
+		<id name="proyectoId" type="long">
+			<generator class="increment" />
+		</id>
+		<property name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="description" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="codeName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="sageCompanyId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="es.davinciti.liferay.model.impl.NotaGastoImpl" table="CMES_NotaGasto">
+		<cache usage="read-write" />
+		<id name="notagastoId" type="long">
+			<generator class="increment" />
+		</id>
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="description" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="startDate" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="endDate" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="comments" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="amount" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="updateDate" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="es.davinciti.liferay.model.impl.OrganizationSageCompanyImpl" table="CMES_OrganizationSageCompany">
+		<cache usage="read-write" />
+		<id name="orgsagecompanyId" type="long">
+			<generator class="increment" />
+		</id>
+		<property name="organizationId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="sageCompanyId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="es.davinciti.liferay.model.impl.SageEmployeeImpl" table="CMES_SageEmployee">
+		<cache usage="read-write" />
+		<id name="sageEmployeeId" type="long">
+			<generator class="increment" />
+		</id>
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="employeeID" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="applicationId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="personId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="startDate" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="endDate" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="seniority" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="es.davinciti.liferay.model.impl.SapEmployeeImpl" table="CMES_SapEmployee">
+		<cache usage="read-write" />
+		<id name="sapEmployeeId" type="long">
+			<generator class="increment" />
+		</id>
+		<property name="employeeID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="middleName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="gender" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="jobTitle" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="employeeType" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="es.davinciti.liferay.model.impl.TipoDiaCalendarImpl" table="CMES_TipoDiaCalendar">
+		<cache usage="read-write" />
+		<id name="tipoDiaCalendarId" type="long">
+			<generator class="increment" />
+		</id>
+		<property name="descripcion" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="fondoColor" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="letraColor" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="strong" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+</hibernate-mapping>

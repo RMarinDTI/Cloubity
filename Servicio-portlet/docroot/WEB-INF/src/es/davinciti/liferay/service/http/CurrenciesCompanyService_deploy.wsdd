@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+	<service name="Plugin_CMES_CurrenciesCompanyService" provider="java:RPC" style="rpc" use="encoded">
+		<arrayMapping xmlns:ns="urn:http.service.liferay.davinciti.es" xmlns:cmp-ns="http://model.liferay.davinciti.es" qname="ns:ArrayOf_tns2_CurrenciesCompanySoap" type="java:es.davinciti.liferay.model.CurrenciesCompanySoap[]" innerType="cmp-ns:CurrenciesCompanySoap" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"></arrayMapping>
+		<typeMapping xmlns:ns="http://model.liferay.davinciti.es" qname="ns:CurrenciesCompanySoap" type="java:es.davinciti.liferay.model.CurrenciesCompanySoap" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"></typeMapping>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="urn:http.service.liferay.davinciti.es" xmlns:tns2="http://model.liferay.davinciti.es" name="getCurrenciesCompany" qname="operNS:getCurrenciesCompany" returnQName="getCurrenciesCompanyReturn" returnType="rtns:ArrayOf_tns2_CurrenciesCompanySoap" returnItemType="tns2:CurrenciesCompanySoap" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="companyId" type="tns:long"></parameter>
+		</operation>
+		<parameter name="allowedMethods" value="getCurrenciesCompany" />
+		<parameter name="className" value="es.davinciti.liferay.service.http.CurrenciesCompanyServiceSoap" />
+		<parameter name="schemaUnqualified" value="http://model.liferay.davinciti.es,urn:http.service.liferay.davinciti.es" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="CurrenciesCompanyServiceSoap" />
+		<parameter name="wsdlServiceElement" value="CurrenciesCompanyServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_CMES_CurrenciesCompanyService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.liferay.davinciti.es" />
+	</service>
+</deployment>

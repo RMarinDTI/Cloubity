@@ -1,0 +1,195 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="es.davinciti.liferay.model.ApplicationStatus">
+		<field name="applicationStatusId" type="long" />
+		<field name="applicationName" type="String" />
+		<field name="statusId" type="String" />
+		<field name="name" type="String" />
+		<field name="description" type="String" />
+	</model>
+	<model name="es.davinciti.liferay.model.Calendario">
+		<field name="calendarioId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="year" type="int" />
+		<field name="calendarJson" type="String">
+			<hint name="max-length">4000</hint>
+		</field>
+		<field name="status" type="String" />
+	</model>
+	<model name="es.davinciti.liferay.model.ConnectionActionTypes">
+		<field name="connectionActionTypeId" type="long" />
+		<field name="name" type="String" />
+		<field name="disableDate" type="Date" />
+	</model>
+	<model name="es.davinciti.liferay.model.ConnectionConfigs">
+		<field name="configId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="installationId" type="String" />
+		<field name="companyCode" type="String" />
+		<field name="productCode" type="String" />
+		<field name="disableDate" type="Date" />
+	</model>
+	<model name="es.davinciti.liferay.model.ConnectionData">
+		<field name="connectionDataId" type="long" />
+		<field name="companyDB" type="String" />
+		<field name="username" type="String" />
+		<field name="password" type="String" />
+		<field name="url" type="String" />
+		<field name="server" type="String" />
+		<field name="port" type="String" />
+		<field name="accessToken" type="String">
+			<hint name="max-length">4000</hint>
+		</field>
+		<field name="refreshToken" type="String">
+			<hint name="max-length">4000</hint>
+		</field>
+		<field name="disableDate" type="Date" />
+		<field name="secretKey" type="String" />
+		<field name="applicationToken" type="String">
+			<hint name="max-length">4000</hint>
+		</field>
+		<field name="clientId" type="String" />
+		<field name="tokenType" type="String" />
+		<field name="expiresIn" type="int" />
+		<field name="scope" type="String" />
+		<field name="clavePrimaria" type="String" />
+		<field name="claveSecundaria" type="String" />
+		<field name="sessionId" type="String" />
+		<field name="encodedClientCredentials" type="String">
+			<hint name="max-length">4000</hint>
+		</field>
+		<field name="state" type="String" />
+		<field name="webSecretKey" type="String" />
+		<field name="applicationCode" type="String" />
+	</model>
+	<model name="es.davinciti.liferay.model.ConnectionTypes">
+		<field name="connectionTypeId" type="long" />
+		<field name="name" type="String" />
+		<field name="disableDate" type="Date" />
+	</model>
+	<model name="es.davinciti.liferay.model.CurrenciesCompany">
+		<field name="currenciescompanyId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="currenciesJson" type="String" />
+	</model>
+	<model name="es.davinciti.liferay.model.Currency">
+		<field name="currencyId" type="long" />
+		<field name="ccyMnrUnts" type="String" />
+		<field name="ccyName" type="String" />
+		<field name="ccyNumber" type="String" />
+		<field name="code" type="String" />
+		<field name="countryName" type="String" />
+	</model>
+	<model name="es.davinciti.liferay.model.DiasVacaciones">
+		<field name="diasVacacionesId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="year" type="int" />
+		<field name="disponibles" type="int" />
+		<field name="solicitados" type="int" />
+		<field name="aprobados" type="int" />
+		<field name="pendientes" type="int" />
+		<field name="asignado" type="String" />
+	</model>
+	<model name="es.davinciti.liferay.model.HistoricoNota">
+		<field name="historiconotaId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="comments" type="String" />
+		<field name="updateAt" type="String" />
+		<field name="prevStatus" type="String" />
+		<field name="newStatus" type="String" />
+	</model>
+	<model name="es.davinciti.liferay.model.LineaGasto">
+		<field name="lineagastoId" type="long" />
+		<field name="date" type="String" />
+		<field name="amount" type="String" />
+		<field name="documentId" type="String" />
+		<field name="comments" type="String" />
+		<field name="status" type="String" />
+		<field name="price" type="String" />
+		<field name="quantity" type="String" />
+	</model>
+	<model name="es.davinciti.liferay.model.LineaGastoCategoria">
+		<field name="categoriaId" type="long" />
+		<field name="name" type="String" />
+		<field name="description" type="String" />
+		<field name="categoryCode" type="String" />
+		<field name="accountCode" type="String" />
+		<field name="changePrice" type="String" />
+		<field name="needQuantity" type="String" />
+		<field name="price" type="String" />
+	</model>
+	<model name="es.davinciti.liferay.model.LineaGastoCliente">
+		<field name="clienteId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="name" type="String" />
+		<field name="description" type="String" />
+	</model>
+	<model name="es.davinciti.liferay.model.LineaGastoFamilia">
+		<field name="familiaId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="name" type="String" />
+		<field name="description" type="String" />
+	</model>
+	<model name="es.davinciti.liferay.model.LineaGastoPayMode">
+		<field name="paymodeId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="name" type="String" />
+		<field name="description" type="String" />
+	</model>
+	<model name="es.davinciti.liferay.model.LineaGastoProyecto">
+		<field name="proyectoId" type="long" />
+		<field name="name" type="String" />
+		<field name="description" type="String" />
+		<field name="codeName" type="String" />
+		<field name="sageCompanyId" type="String" />
+	</model>
+	<model name="es.davinciti.liferay.model.NotaGasto">
+		<field name="notagastoId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="description" type="String" />
+		<field name="startDate" type="String" />
+		<field name="endDate" type="String" />
+		<field name="comments" type="String" />
+		<field name="status" type="String" />
+		<field name="amount" type="String" />
+		<field name="createDate" type="String" />
+		<field name="updateDate" type="String" />
+	</model>
+	<model name="es.davinciti.liferay.model.OrganizationSageCompany">
+		<field name="orgsagecompanyId" type="long" />
+		<field name="organizationId" type="long" />
+		<field name="sageCompanyId" type="String" />
+	</model>
+	<model name="es.davinciti.liferay.model.SageEmployee">
+		<field name="sageEmployeeId" type="long" />
+		<field name="userId" type="long" />
+		<field name="employeeID" type="String" />
+		<field name="applicationId" type="String" />
+		<field name="companyId" type="String" />
+		<field name="personId" type="String" />
+		<field name="startDate" type="String" />
+		<field name="endDate" type="String" />
+		<field name="seniority" type="String" />
+	</model>
+	<model name="es.davinciti.liferay.model.SapEmployee">
+		<field name="sapEmployeeId" type="long" />
+		<field name="employeeID" type="long" />
+		<field name="userId" type="long" />
+		<field name="middleName" type="String" />
+		<field name="gender" type="String" />
+		<field name="jobTitle" type="String" />
+		<field name="employeeType" type="String" />
+	</model>
+	<model name="es.davinciti.liferay.model.TipoDiaCalendar">
+		<field name="tipoDiaCalendarId" type="long" />
+		<field name="descripcion" type="String" />
+		<field name="fondoColor" type="String" />
+		<field name="letraColor" type="String" />
+		<field name="strong" type="String" />
+	</model>
+</model-hints>

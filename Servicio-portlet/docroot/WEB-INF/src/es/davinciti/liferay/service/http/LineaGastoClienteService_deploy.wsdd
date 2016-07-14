@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+	<service name="Plugin_CMES_LineaGastoClienteService" provider="java:RPC" style="rpc" use="encoded">
+		<arrayMapping xmlns:ns="urn:http.service.liferay.davinciti.es" xmlns:cmp-ns="http://model.liferay.davinciti.es" qname="ns:ArrayOf_tns2_LineaGastoClienteSoap" type="java:es.davinciti.liferay.model.LineaGastoClienteSoap[]" innerType="cmp-ns:LineaGastoClienteSoap" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"></arrayMapping>
+		<typeMapping xmlns:ns="http://model.liferay.davinciti.es" qname="ns:LineaGastoClienteSoap" type="java:es.davinciti.liferay.model.LineaGastoClienteSoap" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"></typeMapping>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://model.liferay.davinciti.es" name="getClienteLineaGasto" qname="operNS:getClienteLineaGasto" returnQName="getClienteLineaGastoReturn" returnType="rtns:LineaGastoClienteSoap" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="lineagastoId" type="tns:long"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="urn:http.service.liferay.davinciti.es" xmlns:tns2="http://model.liferay.davinciti.es" name="getClientes" qname="operNS:getClientes" returnQName="getClientesReturn" returnType="rtns:ArrayOf_tns2_LineaGastoClienteSoap" returnItemType="tns2:LineaGastoClienteSoap" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="companyId" type="tns:long"></parameter>
+		</operation>
+		<parameter name="allowedMethods" value="getClienteLineaGasto getClientes" />
+		<parameter name="className" value="es.davinciti.liferay.service.http.LineaGastoClienteServiceSoap" />
+		<parameter name="schemaUnqualified" value="http://model.liferay.davinciti.es,urn:http.service.liferay.davinciti.es" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="LineaGastoClienteServiceSoap" />
+		<parameter name="wsdlServiceElement" value="LineaGastoClienteServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_CMES_LineaGastoClienteService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.liferay.davinciti.es" />
+	</service>
+</deployment>

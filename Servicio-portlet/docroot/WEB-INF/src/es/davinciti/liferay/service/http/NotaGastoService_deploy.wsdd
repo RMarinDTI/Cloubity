@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+
+<deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+	<service name="Plugin_CMES_NotaGastoService" provider="java:RPC" style="rpc" use="encoded">
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="addNotaGasto" qname="operNS:addNotaGasto" returnQName="addNotaGastoReturn" returnType="rtns:string" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="companyId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="userId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="dataIni" type="tns:string"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="localeT" type="tns:string"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="deleteNotaGasto" qname="operNS:deleteNotaGasto" returnQName="deleteNotaGastoReturn" returnType="rtns:string" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="notagastoId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="localeT" type="tns:string"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="denyNotaGasto" qname="operNS:denyNotaGasto" returnQName="denyNotaGastoReturn" returnType="rtns:string" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="notagastoId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="localeT" type="tns:string"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="editNotaGasto" qname="operNS:editNotaGasto" returnQName="editNotaGastoReturn" returnType="rtns:string" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="notagastoId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="data" type="tns:anyType"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="localeT" type="tns:string"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getApplicationStatusName" qname="operNS:getApplicationStatusName" returnQName="getApplicationStatusNameReturn" returnType="rtns:string" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="statusId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="localeT" type="tns:string"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getCompanyExpensesNote" qname="operNS:getCompanyExpensesNote" returnQName="getCompanyExpensesNoteReturn" returnType="rtns:string" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="companyId" type="tns:long"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getOrganizationSageCompanies" qname="operNS:getOrganizationSageCompanies" returnQName="getOrganizationSageCompaniesReturn" returnType="rtns:string" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="companyId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="userId" type="tns:long"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getUserExpensesNote" qname="operNS:getUserExpensesNote" returnQName="getUserExpensesNoteReturn" returnType="rtns:string" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="companyId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="userId" type="tns:long"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="isUsuarioAdministrador" qname="operNS:isUsuarioAdministrador" returnQName="isUsuarioAdministradorReturn" returnType="rtns:boolean" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="companyId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="userId" type="tns:long"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="isUsuarioBasico" qname="operNS:isUsuarioBasico" returnQName="isUsuarioBasicoReturn" returnType="rtns:boolean" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="companyId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="userId" type="tns:long"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="isUsuarioValidador" qname="operNS:isUsuarioValidador" returnQName="isUsuarioValidadorReturn" returnType="rtns:boolean" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="companyId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="userId" type="tns:long"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="sendValidateNotaGasto" qname="operNS:sendValidateNotaGasto" returnQName="sendValidateNotaGastoReturn" returnType="rtns:string" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="notagastoId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="localeT" type="tns:string"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="validateNotaGasto" qname="operNS:validateNotaGasto" returnQName="validateNotaGastoReturn" returnType="rtns:string" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="companyId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="userId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="notagastoId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="localeT" type="tns:string"></parameter>
+		</operation>
+		<parameter name="allowedMethods" value="addNotaGasto deleteNotaGasto denyNotaGasto editNotaGasto getApplicationStatusName getCompanyExpensesNote getOrganizationSageCompanies getUserExpensesNote isUsuarioAdministrador isUsuarioBasico isUsuarioValidador sendValidateNotaGasto validateNotaGasto" />
+		<parameter name="className" value="es.davinciti.liferay.service.http.NotaGastoServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="NotaGastoServiceSoap" />
+		<parameter name="wsdlServiceElement" value="NotaGastoServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_CMES_NotaGastoService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.liferay.davinciti.es" />
+	</service>
+</deployment>

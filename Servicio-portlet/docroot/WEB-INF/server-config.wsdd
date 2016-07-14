@@ -1,0 +1,369 @@
+<?xml version="1.0"?>
+
+<deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+	<globalConfiguration>
+		<parameter name="adminPassword" value="admin" />
+		<parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl" />
+		<parameter name="sendXsiTypes" value="true" />
+		<parameter name="sendMultiRefs" value="true" />
+		<parameter name="sendXMLDeclaration" value="true" />
+		<parameter name="axis.sendMinimizedElements" value="true" />
+		<requestFlow>
+			<handler type="java:org.apache.axis.handlers.JWSHandler">
+				<parameter name="scope" value="session" />
+			</handler>
+			<handler type="java:org.apache.axis.handlers.JWSHandler">
+				<parameter name="scope" value="request" />
+				<parameter name="extension" value=".jwr" />
+			</handler>
+		</requestFlow>
+	</globalConfiguration>
+	<handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder" />
+	<handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper" />
+	<handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler" />
+	<transport name="http">
+		<requestFlow>
+			<handler type="URLMapper" />
+			<handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler" />
+		</requestFlow>
+	</transport>
+	<transport name="local">
+		<responseFlow>
+			<handler type="LocalResponder" />
+		</responseFlow>
+	</transport>
+	<service name="Plugin_CMES_ApplicationStatusService" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="es.davinciti.liferay.service.http.ApplicationStatusServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="ApplicationStatusServiceSoap" />
+		<parameter name="wsdlServiceElement" value="ApplicationStatusServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_CMES_ApplicationStatusService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.liferay.davinciti.es" />
+	</service>
+	<service name="Plugin_CMES_CalendarioService" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="es.davinciti.liferay.service.http.CalendarioServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="CalendarioServiceSoap" />
+		<parameter name="wsdlServiceElement" value="CalendarioServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_CMES_CalendarioService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.liferay.davinciti.es" />
+	</service>
+	<service name="Plugin_CMES_ConnectionActionTypesService" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="es.davinciti.liferay.service.http.ConnectionActionTypesServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="ConnectionActionTypesServiceSoap" />
+		<parameter name="wsdlServiceElement" value="ConnectionActionTypesServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_CMES_ConnectionActionTypesService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.liferay.davinciti.es" />
+	</service>
+	<service name="Plugin_CMES_ConnectionConfigsService" provider="java:RPC" style="rpc" use="encoded">
+		<arrayMapping xmlns:ns="urn:http.service.liferay.davinciti.es" xmlns:cmp-ns="http://model.liferay.davinciti.es" qname="ns:ArrayOf_tns2_ConnectionTypesSoap" type="java:es.davinciti.liferay.model.ConnectionTypesSoap[]" innerType="cmp-ns:ConnectionTypesSoap" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"></arrayMapping>
+		<typeMapping xmlns:ns="http://model.liferay.davinciti.es" qname="ns:ConnectionTypesSoap" type="java:es.davinciti.liferay.model.ConnectionTypesSoap" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"></typeMapping>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="urn:http.service.liferay.davinciti.es" xmlns:tns2="http://model.liferay.davinciti.es" name="getConnectionTypes" qname="operNS:getConnectionTypes" returnQName="getConnectionTypesReturn" returnType="rtns:ArrayOf_tns2_ConnectionTypesSoap" returnItemType="tns2:ConnectionTypesSoap" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="connectionConfigsId" type="tns:long"></parameter>
+		</operation>
+		<parameter name="allowedMethods" value="getConnectionTypes" />
+		<parameter name="className" value="es.davinciti.liferay.service.http.ConnectionConfigsServiceSoap" />
+		<parameter name="schemaUnqualified" value="http://model.liferay.davinciti.es,urn:http.service.liferay.davinciti.es" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="ConnectionConfigsServiceSoap" />
+		<parameter name="wsdlServiceElement" value="ConnectionConfigsServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_CMES_ConnectionConfigsService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.liferay.davinciti.es" />
+	</service>
+	<service name="Plugin_CMES_ConnectionDataService" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="es.davinciti.liferay.service.http.ConnectionDataServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="ConnectionDataServiceSoap" />
+		<parameter name="wsdlServiceElement" value="ConnectionDataServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_CMES_ConnectionDataService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.liferay.davinciti.es" />
+	</service>
+	<service name="Plugin_CMES_ConnectionTypesService" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="es.davinciti.liferay.service.http.ConnectionTypesServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="ConnectionTypesServiceSoap" />
+		<parameter name="wsdlServiceElement" value="ConnectionTypesServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_CMES_ConnectionTypesService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.liferay.davinciti.es" />
+	</service>
+	<service name="Plugin_CMES_CurrenciesCompanyService" provider="java:RPC" style="rpc" use="encoded">
+		<arrayMapping xmlns:ns="urn:http.service.liferay.davinciti.es" xmlns:cmp-ns="http://model.liferay.davinciti.es" qname="ns:ArrayOf_tns2_CurrenciesCompanySoap" type="java:es.davinciti.liferay.model.CurrenciesCompanySoap[]" innerType="cmp-ns:CurrenciesCompanySoap" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"></arrayMapping>
+		<typeMapping xmlns:ns="http://model.liferay.davinciti.es" qname="ns:CurrenciesCompanySoap" type="java:es.davinciti.liferay.model.CurrenciesCompanySoap" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"></typeMapping>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="urn:http.service.liferay.davinciti.es" xmlns:tns2="http://model.liferay.davinciti.es" name="getCurrenciesCompany" qname="operNS:getCurrenciesCompany" returnQName="getCurrenciesCompanyReturn" returnType="rtns:ArrayOf_tns2_CurrenciesCompanySoap" returnItemType="tns2:CurrenciesCompanySoap" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="companyId" type="tns:long"></parameter>
+		</operation>
+		<parameter name="allowedMethods" value="getCurrenciesCompany" />
+		<parameter name="className" value="es.davinciti.liferay.service.http.CurrenciesCompanyServiceSoap" />
+		<parameter name="schemaUnqualified" value="http://model.liferay.davinciti.es,urn:http.service.liferay.davinciti.es" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="CurrenciesCompanyServiceSoap" />
+		<parameter name="wsdlServiceElement" value="CurrenciesCompanyServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_CMES_CurrenciesCompanyService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.liferay.davinciti.es" />
+	</service>
+	<service name="Plugin_CMES_CurrencyService" provider="java:RPC" style="rpc" use="encoded">
+		<typeMapping xmlns:ns="http://model.liferay.davinciti.es" qname="ns:CurrencySoap" type="java:es.davinciti.liferay.model.CurrencySoap" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"></typeMapping>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://model.liferay.davinciti.es" name="getCurrencyLineaGasto" qname="operNS:getCurrencyLineaGasto" returnQName="getCurrencyLineaGastoReturn" returnType="rtns:CurrencySoap" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="lineagastoId" type="tns:long"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://model.liferay.davinciti.es" name="getCurrency" qname="operNS:getCurrency" returnQName="getCurrencyReturn" returnType="rtns:CurrencySoap" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="currencyId" type="tns:long"></parameter>
+		</operation>
+		<parameter name="allowedMethods" value="getCurrency getCurrencyLineaGasto" />
+		<parameter name="className" value="es.davinciti.liferay.service.http.CurrencyServiceSoap" />
+		<parameter name="schemaUnqualified" value="http://model.liferay.davinciti.es" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="CurrencyServiceSoap" />
+		<parameter name="wsdlServiceElement" value="CurrencyServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_CMES_CurrencyService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.liferay.davinciti.es" />
+	</service>
+	<service name="Plugin_CMES_DiasVacacionesService" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="es.davinciti.liferay.service.http.DiasVacacionesServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="DiasVacacionesServiceSoap" />
+		<parameter name="wsdlServiceElement" value="DiasVacacionesServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_CMES_DiasVacacionesService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.liferay.davinciti.es" />
+	</service>
+	<service name="Plugin_CMES_HistoricoNotaService" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="es.davinciti.liferay.service.http.HistoricoNotaServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="HistoricoNotaServiceSoap" />
+		<parameter name="wsdlServiceElement" value="HistoricoNotaServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_CMES_HistoricoNotaService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.liferay.davinciti.es" />
+	</service>
+	<service name="Plugin_CMES_LineaGastoCategoriaService" provider="java:RPC" style="rpc" use="encoded">
+		<arrayMapping xmlns:ns="urn:http.service.liferay.davinciti.es" xmlns:cmp-ns="http://model.liferay.davinciti.es" qname="ns:ArrayOf_tns2_LineaGastoCategoriaSoap" type="java:es.davinciti.liferay.model.LineaGastoCategoriaSoap[]" innerType="cmp-ns:LineaGastoCategoriaSoap" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"></arrayMapping>
+		<typeMapping xmlns:ns="http://model.liferay.davinciti.es" qname="ns:LineaGastoCategoriaSoap" type="java:es.davinciti.liferay.model.LineaGastoCategoriaSoap" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"></typeMapping>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://model.liferay.davinciti.es" name="getCategoriaLineaGasto" qname="operNS:getCategoriaLineaGasto" returnQName="getCategoriaLineaGastoReturn" returnType="rtns:LineaGastoCategoriaSoap" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="lineagastoId" type="tns:long"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="urn:http.service.liferay.davinciti.es" xmlns:tns2="http://model.liferay.davinciti.es" name="getCategoriasFamilia" qname="operNS:getCategoriasFamilia" returnQName="getCategoriasFamiliaReturn" returnType="rtns:ArrayOf_tns2_LineaGastoCategoriaSoap" returnItemType="tns2:LineaGastoCategoriaSoap" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="familiaId" type="tns:long"></parameter>
+		</operation>
+		<parameter name="allowedMethods" value="getCategoriaLineaGasto getCategoriasFamilia" />
+		<parameter name="className" value="es.davinciti.liferay.service.http.LineaGastoCategoriaServiceSoap" />
+		<parameter name="schemaUnqualified" value="http://model.liferay.davinciti.es,urn:http.service.liferay.davinciti.es" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="LineaGastoCategoriaServiceSoap" />
+		<parameter name="wsdlServiceElement" value="LineaGastoCategoriaServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_CMES_LineaGastoCategoriaService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.liferay.davinciti.es" />
+	</service>
+	<service name="Plugin_CMES_LineaGastoClienteService" provider="java:RPC" style="rpc" use="encoded">
+		<arrayMapping xmlns:ns="urn:http.service.liferay.davinciti.es" xmlns:cmp-ns="http://model.liferay.davinciti.es" qname="ns:ArrayOf_tns2_LineaGastoClienteSoap" type="java:es.davinciti.liferay.model.LineaGastoClienteSoap[]" innerType="cmp-ns:LineaGastoClienteSoap" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"></arrayMapping>
+		<typeMapping xmlns:ns="http://model.liferay.davinciti.es" qname="ns:LineaGastoClienteSoap" type="java:es.davinciti.liferay.model.LineaGastoClienteSoap" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"></typeMapping>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://model.liferay.davinciti.es" name="getClienteLineaGasto" qname="operNS:getClienteLineaGasto" returnQName="getClienteLineaGastoReturn" returnType="rtns:LineaGastoClienteSoap" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="lineagastoId" type="tns:long"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="urn:http.service.liferay.davinciti.es" xmlns:tns2="http://model.liferay.davinciti.es" name="getClientes" qname="operNS:getClientes" returnQName="getClientesReturn" returnType="rtns:ArrayOf_tns2_LineaGastoClienteSoap" returnItemType="tns2:LineaGastoClienteSoap" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="companyId" type="tns:long"></parameter>
+		</operation>
+		<parameter name="allowedMethods" value="getClienteLineaGasto getClientes" />
+		<parameter name="className" value="es.davinciti.liferay.service.http.LineaGastoClienteServiceSoap" />
+		<parameter name="schemaUnqualified" value="http://model.liferay.davinciti.es,urn:http.service.liferay.davinciti.es" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="LineaGastoClienteServiceSoap" />
+		<parameter name="wsdlServiceElement" value="LineaGastoClienteServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_CMES_LineaGastoClienteService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.liferay.davinciti.es" />
+	</service>
+	<service name="Plugin_CMES_LineaGastoFamiliaService" provider="java:RPC" style="rpc" use="encoded">
+		<arrayMapping xmlns:ns="urn:http.service.liferay.davinciti.es" xmlns:cmp-ns="http://model.liferay.davinciti.es" qname="ns:ArrayOf_tns2_LineaGastoFamiliaSoap" type="java:es.davinciti.liferay.model.LineaGastoFamiliaSoap[]" innerType="cmp-ns:LineaGastoFamiliaSoap" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"></arrayMapping>
+		<typeMapping xmlns:ns="http://model.liferay.davinciti.es" qname="ns:LineaGastoFamiliaSoap" type="java:es.davinciti.liferay.model.LineaGastoFamiliaSoap" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"></typeMapping>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://model.liferay.davinciti.es" name="getFamiliaLineaGasto" qname="operNS:getFamiliaLineaGasto" returnQName="getFamiliaLineaGastoReturn" returnType="rtns:LineaGastoFamiliaSoap" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="lineagastoId" type="tns:long"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="urn:http.service.liferay.davinciti.es" xmlns:tns2="http://model.liferay.davinciti.es" name="getFamilias" qname="operNS:getFamilias" returnQName="getFamiliasReturn" returnType="rtns:ArrayOf_tns2_LineaGastoFamiliaSoap" returnItemType="tns2:LineaGastoFamiliaSoap" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="companyId" type="tns:long"></parameter>
+		</operation>
+		<parameter name="allowedMethods" value="getFamiliaLineaGasto getFamilias" />
+		<parameter name="className" value="es.davinciti.liferay.service.http.LineaGastoFamiliaServiceSoap" />
+		<parameter name="schemaUnqualified" value="http://model.liferay.davinciti.es,urn:http.service.liferay.davinciti.es" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="LineaGastoFamiliaServiceSoap" />
+		<parameter name="wsdlServiceElement" value="LineaGastoFamiliaServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_CMES_LineaGastoFamiliaService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.liferay.davinciti.es" />
+	</service>
+	<service name="Plugin_CMES_LineaGastoPayModeService" provider="java:RPC" style="rpc" use="encoded">
+		<arrayMapping xmlns:ns="urn:http.service.liferay.davinciti.es" xmlns:cmp-ns="http://model.liferay.davinciti.es" qname="ns:ArrayOf_tns2_LineaGastoPayModeSoap" type="java:es.davinciti.liferay.model.LineaGastoPayModeSoap[]" innerType="cmp-ns:LineaGastoPayModeSoap" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"></arrayMapping>
+		<typeMapping xmlns:ns="http://model.liferay.davinciti.es" qname="ns:LineaGastoPayModeSoap" type="java:es.davinciti.liferay.model.LineaGastoPayModeSoap" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"></typeMapping>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://model.liferay.davinciti.es" name="getPaymodeLineaGasto" qname="operNS:getPaymodeLineaGasto" returnQName="getPaymodeLineaGastoReturn" returnType="rtns:LineaGastoPayModeSoap" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="lineagastoId" type="tns:long"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="urn:http.service.liferay.davinciti.es" xmlns:tns2="http://model.liferay.davinciti.es" name="getPaymodes" qname="operNS:getPaymodes" returnQName="getPaymodesReturn" returnType="rtns:ArrayOf_tns2_LineaGastoPayModeSoap" returnItemType="tns2:LineaGastoPayModeSoap" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="companyId" type="tns:long"></parameter>
+		</operation>
+		<parameter name="allowedMethods" value="getPaymodeLineaGasto getPaymodes" />
+		<parameter name="className" value="es.davinciti.liferay.service.http.LineaGastoPayModeServiceSoap" />
+		<parameter name="schemaUnqualified" value="http://model.liferay.davinciti.es,urn:http.service.liferay.davinciti.es" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="LineaGastoPayModeServiceSoap" />
+		<parameter name="wsdlServiceElement" value="LineaGastoPayModeServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_CMES_LineaGastoPayModeService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.liferay.davinciti.es" />
+	</service>
+	<service name="Plugin_CMES_LineaGastoProyectoService" provider="java:RPC" style="rpc" use="encoded">
+		<arrayMapping xmlns:ns="urn:http.service.liferay.davinciti.es" xmlns:cmp-ns="http://model.liferay.davinciti.es" qname="ns:ArrayOf_tns2_LineaGastoProyectoSoap" type="java:es.davinciti.liferay.model.LineaGastoProyectoSoap[]" innerType="cmp-ns:LineaGastoProyectoSoap" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"></arrayMapping>
+		<typeMapping xmlns:ns="http://model.liferay.davinciti.es" qname="ns:LineaGastoProyectoSoap" type="java:es.davinciti.liferay.model.LineaGastoProyectoSoap" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"></typeMapping>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://model.liferay.davinciti.es" name="getProyectoLineaGasto" qname="operNS:getProyectoLineaGasto" returnQName="getProyectoLineaGastoReturn" returnType="rtns:LineaGastoProyectoSoap" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="lineagastoId" type="tns:long"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="urn:http.service.liferay.davinciti.es" xmlns:tns2="http://model.liferay.davinciti.es" name="getProyectosCliente" qname="operNS:getProyectosCliente" returnQName="getProyectosClienteReturn" returnType="rtns:ArrayOf_tns2_LineaGastoProyectoSoap" returnItemType="tns2:LineaGastoProyectoSoap" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="clienteId" type="tns:long"></parameter>
+		</operation>
+		<parameter name="allowedMethods" value="getProyectoLineaGasto getProyectosCliente" />
+		<parameter name="className" value="es.davinciti.liferay.service.http.LineaGastoProyectoServiceSoap" />
+		<parameter name="schemaUnqualified" value="http://model.liferay.davinciti.es,urn:http.service.liferay.davinciti.es" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="LineaGastoProyectoServiceSoap" />
+		<parameter name="wsdlServiceElement" value="LineaGastoProyectoServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_CMES_LineaGastoProyectoService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.liferay.davinciti.es" />
+	</service>
+	<service name="Plugin_CMES_LineaGastoService" provider="java:RPC" style="rpc" use="encoded">
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="addLineaGasto" qname="operNS:addLineaGasto" returnQName="addLineaGastoReturn" returnType="rtns:string" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="notagastoId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="data" type="tns:anyType"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="localeT" type="tns:string"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="deleteLineaGasto" qname="operNS:deleteLineaGasto" returnQName="deleteLineaGastoReturn" returnType="rtns:string" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="lineagastoId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="localeT" type="tns:string"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="editLineaGasto" qname="operNS:editLineaGasto" returnQName="editLineaGastoReturn" returnType="rtns:string" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="notagastoId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="lineagastoId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="data" type="tns:anyType"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="localeT" type="tns:string"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getLineasNotaGasto" qname="operNS:getLineasNotaGasto" returnQName="getLineasNotaGastoReturn" returnType="rtns:string" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="notagastoId" type="tns:long"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="setImageLineaGasto" qname="operNS:setImageLineaGasto" returnQName="setImageLineaGastoReturn" returnType="rtns:long" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="companyId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="userId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="documentId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="image" type="tns:base64Binary"></parameter>
+		</operation>
+		<parameter name="allowedMethods" value="addLineaGasto deleteLineaGasto editLineaGasto getLineasNotaGasto setImageLineaGasto" />
+		<parameter name="className" value="es.davinciti.liferay.service.http.LineaGastoServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="LineaGastoServiceSoap" />
+		<parameter name="wsdlServiceElement" value="LineaGastoServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_CMES_LineaGastoService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.liferay.davinciti.es" />
+	</service>
+	<service name="Plugin_CMES_NotaGastoService" provider="java:RPC" style="rpc" use="encoded">
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="addNotaGasto" qname="operNS:addNotaGasto" returnQName="addNotaGastoReturn" returnType="rtns:string" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="companyId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="userId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="dataIni" type="tns:string"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="localeT" type="tns:string"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="deleteNotaGasto" qname="operNS:deleteNotaGasto" returnQName="deleteNotaGastoReturn" returnType="rtns:string" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="notagastoId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="localeT" type="tns:string"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="denyNotaGasto" qname="operNS:denyNotaGasto" returnQName="denyNotaGastoReturn" returnType="rtns:string" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="notagastoId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="localeT" type="tns:string"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="editNotaGasto" qname="operNS:editNotaGasto" returnQName="editNotaGastoReturn" returnType="rtns:string" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="notagastoId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="data" type="tns:anyType"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="localeT" type="tns:string"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getApplicationStatusName" qname="operNS:getApplicationStatusName" returnQName="getApplicationStatusNameReturn" returnType="rtns:string" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="statusId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="localeT" type="tns:string"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getCompanyExpensesNote" qname="operNS:getCompanyExpensesNote" returnQName="getCompanyExpensesNoteReturn" returnType="rtns:string" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="companyId" type="tns:long"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getOrganizationSageCompanies" qname="operNS:getOrganizationSageCompanies" returnQName="getOrganizationSageCompaniesReturn" returnType="rtns:string" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="companyId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="userId" type="tns:long"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getUserExpensesNote" qname="operNS:getUserExpensesNote" returnQName="getUserExpensesNoteReturn" returnType="rtns:string" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="companyId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="userId" type="tns:long"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="isUsuarioAdministrador" qname="operNS:isUsuarioAdministrador" returnQName="isUsuarioAdministradorReturn" returnType="rtns:boolean" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="companyId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="userId" type="tns:long"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="isUsuarioBasico" qname="operNS:isUsuarioBasico" returnQName="isUsuarioBasicoReturn" returnType="rtns:boolean" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="companyId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="userId" type="tns:long"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="isUsuarioValidador" qname="operNS:isUsuarioValidador" returnQName="isUsuarioValidadorReturn" returnType="rtns:boolean" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="companyId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="userId" type="tns:long"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="sendValidateNotaGasto" qname="operNS:sendValidateNotaGasto" returnQName="sendValidateNotaGastoReturn" returnType="rtns:string" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="notagastoId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="localeT" type="tns:string"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="validateNotaGasto" qname="operNS:validateNotaGasto" returnQName="validateNotaGastoReturn" returnType="rtns:string" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="companyId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="userId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="notagastoId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="localeT" type="tns:string"></parameter>
+		</operation>
+		<parameter name="allowedMethods" value="addNotaGasto deleteNotaGasto denyNotaGasto editNotaGasto getApplicationStatusName getCompanyExpensesNote getOrganizationSageCompanies getUserExpensesNote isUsuarioAdministrador isUsuarioBasico isUsuarioValidador sendValidateNotaGasto validateNotaGasto" />
+		<parameter name="className" value="es.davinciti.liferay.service.http.NotaGastoServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="NotaGastoServiceSoap" />
+		<parameter name="wsdlServiceElement" value="NotaGastoServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_CMES_NotaGastoService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.liferay.davinciti.es" />
+	</service>
+	<service name="Plugin_CMES_OrganizationSageCompanyService" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="es.davinciti.liferay.service.http.OrganizationSageCompanyServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="OrganizationSageCompanyServiceSoap" />
+		<parameter name="wsdlServiceElement" value="OrganizationSageCompanyServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_CMES_OrganizationSageCompanyService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.liferay.davinciti.es" />
+	</service>
+	<service name="Plugin_CMES_SageEmployeeService" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="es.davinciti.liferay.service.http.SageEmployeeServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="SageEmployeeServiceSoap" />
+		<parameter name="wsdlServiceElement" value="SageEmployeeServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_CMES_SageEmployeeService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.liferay.davinciti.es" />
+	</service>
+	<service name="Plugin_CMES_SapEmployeeService" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="es.davinciti.liferay.service.http.SapEmployeeServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="SapEmployeeServiceSoap" />
+		<parameter name="wsdlServiceElement" value="SapEmployeeServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_CMES_SapEmployeeService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.liferay.davinciti.es" />
+	</service>
+	<service name="Plugin_CMES_TipoDiaCalendarService" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="es.davinciti.liferay.service.http.TipoDiaCalendarServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="TipoDiaCalendarServiceSoap" />
+		<parameter name="wsdlServiceElement" value="TipoDiaCalendarServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_CMES_TipoDiaCalendarService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.liferay.davinciti.es" />
+	</service>
+</deployment>

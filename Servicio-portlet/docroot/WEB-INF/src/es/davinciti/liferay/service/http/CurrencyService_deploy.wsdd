@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+	<service name="Plugin_CMES_CurrencyService" provider="java:RPC" style="rpc" use="encoded">
+		<typeMapping xmlns:ns="http://model.liferay.davinciti.es" qname="ns:CurrencySoap" type="java:es.davinciti.liferay.model.CurrencySoap" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"></typeMapping>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://model.liferay.davinciti.es" name="getCurrencyLineaGasto" qname="operNS:getCurrencyLineaGasto" returnQName="getCurrencyLineaGastoReturn" returnType="rtns:CurrencySoap" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="lineagastoId" type="tns:long"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://model.liferay.davinciti.es" name="getCurrency" qname="operNS:getCurrency" returnQName="getCurrencyReturn" returnType="rtns:CurrencySoap" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="currencyId" type="tns:long"></parameter>
+		</operation>
+		<parameter name="allowedMethods" value="getCurrency getCurrencyLineaGasto" />
+		<parameter name="className" value="es.davinciti.liferay.service.http.CurrencyServiceSoap" />
+		<parameter name="schemaUnqualified" value="http://model.liferay.davinciti.es" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="CurrencyServiceSoap" />
+		<parameter name="wsdlServiceElement" value="CurrencyServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_CMES_CurrencyService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.liferay.davinciti.es" />
+	</service>
+</deployment>

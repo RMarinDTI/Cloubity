@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+	<service name="Plugin_CMES_LineaGastoService" provider="java:RPC" style="rpc" use="encoded">
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="addLineaGasto" qname="operNS:addLineaGasto" returnQName="addLineaGastoReturn" returnType="rtns:string" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="notagastoId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="data" type="tns:anyType"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="localeT" type="tns:string"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="deleteLineaGasto" qname="operNS:deleteLineaGasto" returnQName="deleteLineaGastoReturn" returnType="rtns:string" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="lineagastoId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="localeT" type="tns:string"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="editLineaGasto" qname="operNS:editLineaGasto" returnQName="editLineaGastoReturn" returnType="rtns:string" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="notagastoId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="lineagastoId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="data" type="tns:anyType"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="localeT" type="tns:string"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getLineasNotaGasto" qname="operNS:getLineasNotaGasto" returnQName="getLineasNotaGastoReturn" returnType="rtns:string" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="notagastoId" type="tns:long"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.liferay.davinciti.es" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="setImageLineaGasto" qname="operNS:setImageLineaGasto" returnQName="setImageLineaGastoReturn" returnType="rtns:long" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="companyId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="userId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="documentId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="image" type="tns:base64Binary"></parameter>
+		</operation>
+		<parameter name="allowedMethods" value="addLineaGasto deleteLineaGasto editLineaGasto getLineasNotaGasto setImageLineaGasto" />
+		<parameter name="className" value="es.davinciti.liferay.service.http.LineaGastoServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="LineaGastoServiceSoap" />
+		<parameter name="wsdlServiceElement" value="LineaGastoServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_CMES_LineaGastoService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.liferay.davinciti.es" />
+	</service>
+</deployment>

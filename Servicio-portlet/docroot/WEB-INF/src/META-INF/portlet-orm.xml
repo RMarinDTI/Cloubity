@@ -1,0 +1,402 @@
+<?xml version="1.0"?>
+
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd">
+	<persistence-unit-metadata>
+		<xml-mapping-metadata-complete/>
+		<persistence-unit-defaults>
+			<access>PROPERTY</access>
+		</persistence-unit-defaults>
+	</persistence-unit-metadata>
+	<mapped-superclass class="es.davinciti.liferay.model.impl.ApplicationStatusModelImpl">
+		<attributes>
+			<id name="applicationStatusId" />
+			<basic name="applicationName" />
+			<basic name="statusId" />
+			<basic name="name" />
+			<basic name="description" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="es.davinciti.liferay.model.impl.CalendarioModelImpl">
+		<attributes>
+			<id name="calendarioId" />
+			<basic name="companyId" />
+			<basic name="userId" />
+			<basic name="year" />
+			<basic name="calendarJson" />
+			<basic name="status" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="es.davinciti.liferay.model.impl.ConnectionActionTypesModelImpl">
+		<attributes>
+			<id name="connectionActionTypeId" />
+			<basic name="name" />
+			<basic name="disableDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="es.davinciti.liferay.model.impl.ConnectionConfigsModelImpl">
+		<attributes>
+			<id name="configId" />
+			<basic name="companyId" />
+			<basic name="installationId" />
+			<basic name="companyCode" />
+			<basic name="productCode" />
+			<basic name="disableDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="es.davinciti.liferay.model.impl.ConnectionDataModelImpl">
+		<attributes>
+			<id name="connectionDataId" />
+			<basic name="companyDB" />
+			<basic name="username" />
+			<basic name="password">
+				<column name="PASSWORD_" />
+			</basic>
+			<basic name="url" />
+			<basic name="server" />
+			<basic name="port" />
+			<basic name="accessToken" />
+			<basic name="refreshToken" />
+			<basic name="disableDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="secretKey" />
+			<basic name="applicationToken" />
+			<basic name="clientId" />
+			<basic name="tokenType" />
+			<basic name="expiresIn" />
+			<basic name="scope" />
+			<basic name="clavePrimaria" />
+			<basic name="claveSecundaria" />
+			<basic name="sessionId" />
+			<basic name="encodedClientCredentials" />
+			<basic name="state">
+				<column name="STATE_" />
+			</basic>
+			<basic name="webSecretKey" />
+			<basic name="applicationCode" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="es.davinciti.liferay.model.impl.ConnectionTypesModelImpl">
+		<attributes>
+			<id name="connectionTypeId" />
+			<basic name="name" />
+			<basic name="disableDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="es.davinciti.liferay.model.impl.CurrenciesCompanyModelImpl">
+		<attributes>
+			<id name="currenciescompanyId" />
+			<basic name="companyId" />
+			<basic name="currenciesJson" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="es.davinciti.liferay.model.impl.CurrencyModelImpl">
+		<attributes>
+			<id name="currencyId" />
+			<basic name="ccyMnrUnts" />
+			<basic name="ccyName" />
+			<basic name="ccyNumber" />
+			<basic name="code">
+				<column name="CODE_" />
+			</basic>
+			<basic name="countryName" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="es.davinciti.liferay.model.impl.DiasVacacionesModelImpl">
+		<attributes>
+			<id name="diasVacacionesId" />
+			<basic name="companyId" />
+			<basic name="userId" />
+			<basic name="year" />
+			<basic name="disponibles" />
+			<basic name="solicitados" />
+			<basic name="aprobados" />
+			<basic name="pendientes" />
+			<basic name="asignado" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="es.davinciti.liferay.model.impl.HistoricoNotaModelImpl">
+		<attributes>
+			<id name="historiconotaId" />
+			<basic name="companyId" />
+			<basic name="userId" />
+			<basic name="comments" />
+			<basic name="updateAt" />
+			<basic name="prevStatus" />
+			<basic name="newStatus" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="es.davinciti.liferay.model.impl.LineaGastoModelImpl">
+		<attributes>
+			<id name="lineagastoId" />
+			<basic name="date">
+				<column name="DATE_" />
+			</basic>
+			<basic name="amount" />
+			<basic name="documentId" />
+			<basic name="comments" />
+			<basic name="status" />
+			<basic name="price" />
+			<basic name="quantity" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="es.davinciti.liferay.model.impl.LineaGastoCategoriaModelImpl">
+		<attributes>
+			<id name="categoriaId" />
+			<basic name="name" />
+			<basic name="description" />
+			<basic name="categoryCode" />
+			<basic name="accountCode" />
+			<basic name="changePrice" />
+			<basic name="needQuantity" />
+			<basic name="price" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="es.davinciti.liferay.model.impl.LineaGastoClienteModelImpl">
+		<attributes>
+			<id name="clienteId" />
+			<basic name="companyId" />
+			<basic name="name" />
+			<basic name="description" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="es.davinciti.liferay.model.impl.LineaGastoFamiliaModelImpl">
+		<attributes>
+			<id name="familiaId" />
+			<basic name="companyId" />
+			<basic name="name" />
+			<basic name="description" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="es.davinciti.liferay.model.impl.LineaGastoPayModeModelImpl">
+		<attributes>
+			<id name="paymodeId" />
+			<basic name="companyId" />
+			<basic name="name" />
+			<basic name="description" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="es.davinciti.liferay.model.impl.LineaGastoProyectoModelImpl">
+		<attributes>
+			<id name="proyectoId" />
+			<basic name="name" />
+			<basic name="description" />
+			<basic name="codeName" />
+			<basic name="sageCompanyId" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="es.davinciti.liferay.model.impl.NotaGastoModelImpl">
+		<attributes>
+			<id name="notagastoId" />
+			<basic name="companyId" />
+			<basic name="userId" />
+			<basic name="description" />
+			<basic name="startDate" />
+			<basic name="endDate" />
+			<basic name="comments" />
+			<basic name="status" />
+			<basic name="amount" />
+			<basic name="createDate" />
+			<basic name="updateDate" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="es.davinciti.liferay.model.impl.OrganizationSageCompanyModelImpl">
+		<attributes>
+			<id name="orgsagecompanyId" />
+			<basic name="organizationId" />
+			<basic name="sageCompanyId" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="es.davinciti.liferay.model.impl.SageEmployeeModelImpl">
+		<attributes>
+			<id name="sageEmployeeId" />
+			<basic name="userId" />
+			<basic name="employeeID" />
+			<basic name="applicationId" />
+			<basic name="companyId" />
+			<basic name="personId" />
+			<basic name="startDate" />
+			<basic name="endDate" />
+			<basic name="seniority" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="es.davinciti.liferay.model.impl.SapEmployeeModelImpl">
+		<attributes>
+			<id name="sapEmployeeId" />
+			<basic name="employeeID" />
+			<basic name="userId" />
+			<basic name="middleName" />
+			<basic name="gender" />
+			<basic name="jobTitle" />
+			<basic name="employeeType" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="es.davinciti.liferay.model.impl.TipoDiaCalendarModelImpl">
+		<attributes>
+			<id name="tipoDiaCalendarId" />
+			<basic name="descripcion" />
+			<basic name="fondoColor" />
+			<basic name="letraColor" />
+			<basic name="strong" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<entity class="es.davinciti.liferay.model.impl.ApplicationStatusImpl" name="ApplicationStatus">
+		<table name="CMES_ApplicationStatus" />
+		<attributes />
+	</entity>
+	<entity class="es.davinciti.liferay.model.impl.CalendarioImpl" name="Calendario">
+		<table name="CMES_Calendario" />
+		<attributes />
+	</entity>
+	<entity class="es.davinciti.liferay.model.impl.ConnectionActionTypesImpl" name="ConnectionActionTypes">
+		<table name="CMES_ConnectionActionTypes" />
+		<attributes />
+	</entity>
+	<entity class="es.davinciti.liferay.model.impl.ConnectionConfigsImpl" name="ConnectionConfigs">
+		<table name="CMES_ConnectionConfigs" />
+		<attributes />
+	</entity>
+	<entity class="es.davinciti.liferay.model.impl.ConnectionDataImpl" name="ConnectionData">
+		<table name="CMES_ConnectionData" />
+		<attributes />
+	</entity>
+	<entity class="es.davinciti.liferay.model.impl.ConnectionTypesImpl" name="ConnectionTypes">
+		<table name="CMES_ConnectionTypes" />
+		<attributes />
+	</entity>
+	<entity class="es.davinciti.liferay.model.impl.CurrenciesCompanyImpl" name="CurrenciesCompany">
+		<table name="CMES_CurrenciesCompany" />
+		<attributes />
+	</entity>
+	<entity class="es.davinciti.liferay.model.impl.CurrencyImpl" name="Currency">
+		<table name="CMES_Currency" />
+		<attributes />
+	</entity>
+	<entity class="es.davinciti.liferay.model.impl.DiasVacacionesImpl" name="DiasVacaciones">
+		<table name="CMES_DiasVacaciones" />
+		<attributes />
+	</entity>
+	<entity class="es.davinciti.liferay.model.impl.HistoricoNotaImpl" name="HistoricoNota">
+		<table name="CMES_HistoricoNota" />
+		<attributes />
+	</entity>
+	<entity class="es.davinciti.liferay.model.impl.LineaGastoImpl" name="LineaGasto">
+		<table name="CMES_LineaGasto" />
+		<attributes />
+	</entity>
+	<entity class="es.davinciti.liferay.model.impl.LineaGastoCategoriaImpl" name="LineaGastoCategoria">
+		<table name="CMES_LineaGastoCategoria" />
+		<attributes />
+	</entity>
+	<entity class="es.davinciti.liferay.model.impl.LineaGastoClienteImpl" name="LineaGastoCliente">
+		<table name="CMES_LineaGastoCliente" />
+		<attributes />
+	</entity>
+	<entity class="es.davinciti.liferay.model.impl.LineaGastoFamiliaImpl" name="LineaGastoFamilia">
+		<table name="CMES_LineaGastoFamilia" />
+		<attributes />
+	</entity>
+	<entity class="es.davinciti.liferay.model.impl.LineaGastoPayModeImpl" name="LineaGastoPayMode">
+		<table name="CMES_LineaGastoPayMode" />
+		<attributes />
+	</entity>
+	<entity class="es.davinciti.liferay.model.impl.LineaGastoProyectoImpl" name="LineaGastoProyecto">
+		<table name="CMES_LineaGastoProyecto" />
+		<attributes />
+	</entity>
+	<entity class="es.davinciti.liferay.model.impl.NotaGastoImpl" name="NotaGasto">
+		<table name="CMES_NotaGasto" />
+		<attributes />
+	</entity>
+	<entity class="es.davinciti.liferay.model.impl.OrganizationSageCompanyImpl" name="OrganizationSageCompany">
+		<table name="CMES_OrganizationSageCompany" />
+		<attributes />
+	</entity>
+	<entity class="es.davinciti.liferay.model.impl.SageEmployeeImpl" name="SageEmployee">
+		<table name="CMES_SageEmployee" />
+		<attributes />
+	</entity>
+	<entity class="es.davinciti.liferay.model.impl.SapEmployeeImpl" name="SapEmployee">
+		<table name="CMES_SapEmployee" />
+		<attributes />
+	</entity>
+	<entity class="es.davinciti.liferay.model.impl.TipoDiaCalendarImpl" name="TipoDiaCalendar">
+		<table name="CMES_TipoDiaCalendar" />
+		<attributes />
+	</entity>
+</entity-mappings>

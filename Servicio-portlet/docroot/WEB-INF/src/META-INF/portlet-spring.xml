@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="es.davinciti.liferay.service.ApplicationStatusLocalService" class="es.davinciti.liferay.service.impl.ApplicationStatusLocalServiceImpl" />
+	<bean id="es.davinciti.liferay.service.ApplicationStatusService" class="es.davinciti.liferay.service.impl.ApplicationStatusServiceImpl" />
+	<bean id="es.davinciti.liferay.service.persistence.ApplicationStatusPersistence" class="es.davinciti.liferay.service.persistence.ApplicationStatusPersistenceImpl" parent="basePersistence" />
+	<bean id="es.davinciti.liferay.service.CalendarioLocalService" class="es.davinciti.liferay.service.impl.CalendarioLocalServiceImpl" />
+	<bean id="es.davinciti.liferay.service.CalendarioService" class="es.davinciti.liferay.service.impl.CalendarioServiceImpl" />
+	<bean id="es.davinciti.liferay.service.persistence.CalendarioPersistence" class="es.davinciti.liferay.service.persistence.CalendarioPersistenceImpl" parent="basePersistence" />
+	<bean id="es.davinciti.liferay.service.ConnectionActionTypesLocalService" class="es.davinciti.liferay.service.impl.ConnectionActionTypesLocalServiceImpl" />
+	<bean id="es.davinciti.liferay.service.ConnectionActionTypesService" class="es.davinciti.liferay.service.impl.ConnectionActionTypesServiceImpl" />
+	<bean id="es.davinciti.liferay.service.persistence.ConnectionActionTypesPersistence" class="es.davinciti.liferay.service.persistence.ConnectionActionTypesPersistenceImpl" parent="basePersistence" />
+	<bean id="es.davinciti.liferay.service.ConnectionConfigsLocalService" class="es.davinciti.liferay.service.impl.ConnectionConfigsLocalServiceImpl" />
+	<bean id="es.davinciti.liferay.service.ConnectionConfigsService" class="es.davinciti.liferay.service.impl.ConnectionConfigsServiceImpl" />
+	<bean id="es.davinciti.liferay.service.persistence.ConnectionConfigsPersistence" class="es.davinciti.liferay.service.persistence.ConnectionConfigsPersistenceImpl" parent="basePersistence" />
+	<bean id="es.davinciti.liferay.service.ConnectionDataLocalService" class="es.davinciti.liferay.service.impl.ConnectionDataLocalServiceImpl" />
+	<bean id="es.davinciti.liferay.service.ConnectionDataService" class="es.davinciti.liferay.service.impl.ConnectionDataServiceImpl" />
+	<bean id="es.davinciti.liferay.service.persistence.ConnectionDataPersistence" class="es.davinciti.liferay.service.persistence.ConnectionDataPersistenceImpl" parent="basePersistence" />
+	<bean id="es.davinciti.liferay.service.ConnectionTypesLocalService" class="es.davinciti.liferay.service.impl.ConnectionTypesLocalServiceImpl" />
+	<bean id="es.davinciti.liferay.service.ConnectionTypesService" class="es.davinciti.liferay.service.impl.ConnectionTypesServiceImpl" />
+	<bean id="es.davinciti.liferay.service.persistence.ConnectionTypesPersistence" class="es.davinciti.liferay.service.persistence.ConnectionTypesPersistenceImpl" parent="basePersistence" />
+	<bean id="es.davinciti.liferay.service.CurrenciesCompanyLocalService" class="es.davinciti.liferay.service.impl.CurrenciesCompanyLocalServiceImpl" />
+	<bean id="es.davinciti.liferay.service.CurrenciesCompanyService" class="es.davinciti.liferay.service.impl.CurrenciesCompanyServiceImpl" />
+	<bean id="es.davinciti.liferay.service.persistence.CurrenciesCompanyPersistence" class="es.davinciti.liferay.service.persistence.CurrenciesCompanyPersistenceImpl" parent="basePersistence" />
+	<bean id="es.davinciti.liferay.service.CurrencyLocalService" class="es.davinciti.liferay.service.impl.CurrencyLocalServiceImpl" />
+	<bean id="es.davinciti.liferay.service.CurrencyService" class="es.davinciti.liferay.service.impl.CurrencyServiceImpl" />
+	<bean id="es.davinciti.liferay.service.persistence.CurrencyPersistence" class="es.davinciti.liferay.service.persistence.CurrencyPersistenceImpl" parent="basePersistence" />
+	<bean id="es.davinciti.liferay.service.DiasVacacionesLocalService" class="es.davinciti.liferay.service.impl.DiasVacacionesLocalServiceImpl" />
+	<bean id="es.davinciti.liferay.service.DiasVacacionesService" class="es.davinciti.liferay.service.impl.DiasVacacionesServiceImpl" />
+	<bean id="es.davinciti.liferay.service.persistence.DiasVacacionesPersistence" class="es.davinciti.liferay.service.persistence.DiasVacacionesPersistenceImpl" parent="basePersistence" />
+	<bean id="es.davinciti.liferay.service.HistoricoNotaLocalService" class="es.davinciti.liferay.service.impl.HistoricoNotaLocalServiceImpl" />
+	<bean id="es.davinciti.liferay.service.HistoricoNotaService" class="es.davinciti.liferay.service.impl.HistoricoNotaServiceImpl" />
+	<bean id="es.davinciti.liferay.service.persistence.HistoricoNotaPersistence" class="es.davinciti.liferay.service.persistence.HistoricoNotaPersistenceImpl" parent="basePersistence" />
+	<bean id="es.davinciti.liferay.service.LineaGastoLocalService" class="es.davinciti.liferay.service.impl.LineaGastoLocalServiceImpl" />
+	<bean id="es.davinciti.liferay.service.LineaGastoService" class="es.davinciti.liferay.service.impl.LineaGastoServiceImpl" />
+	<bean id="es.davinciti.liferay.service.persistence.LineaGastoPersistence" class="es.davinciti.liferay.service.persistence.LineaGastoPersistenceImpl" parent="basePersistence" />
+	<bean id="es.davinciti.liferay.service.LineaGastoCategoriaLocalService" class="es.davinciti.liferay.service.impl.LineaGastoCategoriaLocalServiceImpl" />
+	<bean id="es.davinciti.liferay.service.LineaGastoCategoriaService" class="es.davinciti.liferay.service.impl.LineaGastoCategoriaServiceImpl" />
+	<bean id="es.davinciti.liferay.service.persistence.LineaGastoCategoriaPersistence" class="es.davinciti.liferay.service.persistence.LineaGastoCategoriaPersistenceImpl" parent="basePersistence" />
+	<bean id="es.davinciti.liferay.service.LineaGastoClienteLocalService" class="es.davinciti.liferay.service.impl.LineaGastoClienteLocalServiceImpl" />
+	<bean id="es.davinciti.liferay.service.LineaGastoClienteService" class="es.davinciti.liferay.service.impl.LineaGastoClienteServiceImpl" />
+	<bean id="es.davinciti.liferay.service.persistence.LineaGastoClientePersistence" class="es.davinciti.liferay.service.persistence.LineaGastoClientePersistenceImpl" parent="basePersistence" />
+	<bean id="es.davinciti.liferay.service.LineaGastoFamiliaLocalService" class="es.davinciti.liferay.service.impl.LineaGastoFamiliaLocalServiceImpl" />
+	<bean id="es.davinciti.liferay.service.LineaGastoFamiliaService" class="es.davinciti.liferay.service.impl.LineaGastoFamiliaServiceImpl" />
+	<bean id="es.davinciti.liferay.service.persistence.LineaGastoFamiliaPersistence" class="es.davinciti.liferay.service.persistence.LineaGastoFamiliaPersistenceImpl" parent="basePersistence" />
+	<bean id="es.davinciti.liferay.service.LineaGastoPayModeLocalService" class="es.davinciti.liferay.service.impl.LineaGastoPayModeLocalServiceImpl" />
+	<bean id="es.davinciti.liferay.service.LineaGastoPayModeService" class="es.davinciti.liferay.service.impl.LineaGastoPayModeServiceImpl" />
+	<bean id="es.davinciti.liferay.service.persistence.LineaGastoPayModePersistence" class="es.davinciti.liferay.service.persistence.LineaGastoPayModePersistenceImpl" parent="basePersistence" />
+	<bean id="es.davinciti.liferay.service.LineaGastoProyectoLocalService" class="es.davinciti.liferay.service.impl.LineaGastoProyectoLocalServiceImpl" />
+	<bean id="es.davinciti.liferay.service.LineaGastoProyectoService" class="es.davinciti.liferay.service.impl.LineaGastoProyectoServiceImpl" />
+	<bean id="es.davinciti.liferay.service.persistence.LineaGastoProyectoPersistence" class="es.davinciti.liferay.service.persistence.LineaGastoProyectoPersistenceImpl" parent="basePersistence" />
+	<bean id="es.davinciti.liferay.service.NotaGastoLocalService" class="es.davinciti.liferay.service.impl.NotaGastoLocalServiceImpl" />
+	<bean id="es.davinciti.liferay.service.NotaGastoService" class="es.davinciti.liferay.service.impl.NotaGastoServiceImpl" />
+	<bean id="es.davinciti.liferay.service.persistence.NotaGastoPersistence" class="es.davinciti.liferay.service.persistence.NotaGastoPersistenceImpl" parent="basePersistence" />
+	<bean id="es.davinciti.liferay.service.OrganizationSageCompanyLocalService" class="es.davinciti.liferay.service.impl.OrganizationSageCompanyLocalServiceImpl" />
+	<bean id="es.davinciti.liferay.service.OrganizationSageCompanyService" class="es.davinciti.liferay.service.impl.OrganizationSageCompanyServiceImpl" />
+	<bean id="es.davinciti.liferay.service.persistence.OrganizationSageCompanyPersistence" class="es.davinciti.liferay.service.persistence.OrganizationSageCompanyPersistenceImpl" parent="basePersistence" />
+	<bean id="es.davinciti.liferay.service.SageEmployeeLocalService" class="es.davinciti.liferay.service.impl.SageEmployeeLocalServiceImpl" />
+	<bean id="es.davinciti.liferay.service.SageEmployeeService" class="es.davinciti.liferay.service.impl.SageEmployeeServiceImpl" />
+	<bean id="es.davinciti.liferay.service.persistence.SageEmployeePersistence" class="es.davinciti.liferay.service.persistence.SageEmployeePersistenceImpl" parent="basePersistence" />
+	<bean id="es.davinciti.liferay.service.SapEmployeeLocalService" class="es.davinciti.liferay.service.impl.SapEmployeeLocalServiceImpl" />
+	<bean id="es.davinciti.liferay.service.SapEmployeeService" class="es.davinciti.liferay.service.impl.SapEmployeeServiceImpl" />
+	<bean id="es.davinciti.liferay.service.persistence.SapEmployeePersistence" class="es.davinciti.liferay.service.persistence.SapEmployeePersistenceImpl" parent="basePersistence" />
+	<bean id="es.davinciti.liferay.service.TipoDiaCalendarLocalService" class="es.davinciti.liferay.service.impl.TipoDiaCalendarLocalServiceImpl" />
+	<bean id="es.davinciti.liferay.service.TipoDiaCalendarService" class="es.davinciti.liferay.service.impl.TipoDiaCalendarServiceImpl" />
+	<bean id="es.davinciti.liferay.service.persistence.TipoDiaCalendarPersistence" class="es.davinciti.liferay.service.persistence.TipoDiaCalendarPersistenceImpl" parent="basePersistence" />
+</beans>
